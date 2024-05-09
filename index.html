@@ -16,7 +16,7 @@
         try {
           await navigator.share({
             title: '공유하기 제목입니다',
-            text: '\n공유하기 내용입니다!',
+            text: '공유하기 내용입니다!\n두번째줄<br>세번째줄',
             url: "https://www.drtour.com/" // 현재 페이지 URL 공유
           });
           console.log("공유 성공");
