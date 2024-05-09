@@ -15,9 +15,9 @@
       if (navigator.share) {  // Web Share API 지원 여부 확인
         try {
           await navigator.share({
-            title: '공유 예제',
-            text: '이 웹 페이지를 공유합니다!',
-            url: window.location.href // 현재 페이지 URL 공유
+            title: '공유 제목',
+            text: '공유하기 내용!',
+            url: "https://www.drtour.com/" // 현재 페이지 URL 공유
           });
           console.log("공유 성공");
         } catch (error) {
