@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyunny</title>
+  <meta charset="UTF-8">
+  <title>공유하기 예제</title>
 </head>
 <body>
-    Test(테스트)    
+  <h1>Web Share API를 사용한 공유</h1>
+  <button id="share-button">공유하기</button>
+
+  <script>
+    const shareButton = document.getElementById("share-button");
+
+    shareButton.addEventListener("click", async () => {
+      if (navigator.share) {  // Web Share API 지원 여부 확인
+        try {
+          await navigator.share({
+            title: '공유 예제',
+            text: '이 웹 페이지를 공유합니다!',
+            url: window.location.href // 현재 페이지 URL 공유
+          });
+          console.log("공유 성공");
+        } catch (error) {
+          console.error("공유 실패", error);
+        }
+      } else {
+        console.warn("Web Share API는 이 브라우저에서 지원되지 않습니다.");
+      }
+    });
+  </script>
 </body>
 </html>
